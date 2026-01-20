@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import UserModel from "@/app/models/User"
-import { hashPassword } from "@/app/utils/passwordhash";
+import { hashPassword } from "@/app/lib/passwordhash";
 import { connectDB } from "@/app/lib/mongodb";
 
 

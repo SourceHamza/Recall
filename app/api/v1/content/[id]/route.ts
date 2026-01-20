@@ -1,8 +1,8 @@
 import { connectDB } from "@/app/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import ContentModel from "@/app/models/Content"
-
-
+import { Types } from "mongoose";
+import getUserId from "@/app/lib/auth";
 
 
 export async function GET(req:NextRequest,{params} : { 
@@ -14,7 +14,7 @@ export async function GET(req:NextRequest,{params} : {
         await connectDB()
         const contentId = await params.id
         const result = await ContentModel.findById({ 
-            _id : contentId
+            _id : Types.ObjectId.createFromHexString(contentId)
         })
     
         NextResponse.json({ 
@@ -39,11 +39,12 @@ export async function DELETE(req: NextRequest, { params }: {
     }
 }) {
     try {
+        const userId = Types.ObjectId.createFromHexString(getUserId(req))
         await connectDB()
         const contentId = await params.id
         const result = await ContentModel.deleteOne({
-            _id: contentId,
-            userId: "someuserid"
+            _id: Types.ObjectId.createFromHexString(contentId),
+            userId
         })
 
         if (result.deletedCount === 0) {
