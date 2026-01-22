@@ -1,26 +1,13 @@
+import { Button } from "@/app/components/button"
+import { Input } from "@/app/components/input"
 
+export default function Page() {
 
-export default function Signup() {
+    return <div className="flex flex-row gap-6 justify-baseline items-center">
+        <Button text="Signup" variant="default"/>
+        <Button text="Login" variant="secondary"/>
+    </div>
+   
+    
 
-    return <>
-        <div>
-            <div >
-                Username
-                <input type="Username" />
-            </div>
-            <div >
-                Password
-                <input type="Password" />
-            </div>
-            <div className="flex gap-3 items-center">
-                <button className=" rounded-sm outline-1 px-8 py-1 outline-gray-200 hover:bg-gray-200/60 ">
-                    Signup
-                </button>
-                <div>
-                    Login
-                </div>
-
-            </div>
-        </div>
-    </>
 }
