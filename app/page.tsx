@@ -1,65 +1,82 @@
-import Image from "next/image";
-
+import { Button } from "./components/ui/button";
+import Navbar from "./components/ui/Navbar";
+import Container from "./components/ui/Container";
+import ReasoningCards from "./components/ui/landingUI/ReasoningCards";
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Navbar />
+
+      {/* HERO SECTION */}
+      <Container>
+        <div className="flex flex-col gap-10 items-center justify-center py-40 px-20">
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <p className="text-5xl text-black font-bold text-center max-w-160 leading-14">
+              Stop Losing Great Ideas To Buried Bookmarks.
+            </p>
+            <p className="text-xl text-black text-center max-w-125">
+              Save, tag, and search links all in one clean dashboard. Start building a personal knowledge library.
+            </p>
+          </div>
+
+          <Button text="Store My Links!" variant="default" />
+        </div>
+
+        {/* 3 reasons why */}
+        <div className="flex gap-6 items-center justify-center bg-[#F8F8F8] py-40 px-20 rounded-md">
+          <ReasoningCards
+            heading="Built for thinking, not collecting."
+            subheading="This isn’t a dumping ground for links. It’s a space designed to help you return to ideas when they’re actually useful."
+            imageURL="/asset/collection.png"
+          />
+          <ReasoningCards
+            heading="Everything you save stays findable."
+            subheading="You save once, add a simple tag, and move on.
+            When you need it again, you don’t search your memory → you search your library"
+            imageURL="/asset/Makefindingeasier.png"
+          />
+          <ReasoningCards
+            heading="We save everything, but forget what it meant."
+            subheading="With Tags and Notes you remember exactly what you saved and for what purpose, making remembering easier."
+            imageURL="/asset/why.png"
+          />
+        </div>
+
+
+        {/* What's Next */}
+
+        <div>
+
+        </div>
+
+
+        {/* RE-CTA Section */}
+        <div className="flex flex-col gap-10 items-center py-40 px-20">
+          <p className="font-semibold text-4xl text-black text-center max-w-250">
+            A personal knowledge library that doesn’t demand attention until you need it.
           </p>
+          <Button text="I’m Ready, Store my Links !" variant="default" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* FOOTER */}
+        <div className="flex justify-between items-center px-10 py-5 bg-[#F8F8F8]">
+          <div className="flex flex-col">
+            <p className="text-black text-sm font-semibold">
+              RECALL - Knowledge Base
+            </p>
+            <p className="text-black text-sm">
+              Built to remember things for you
+            </p>
+          </div>
+
+          <div className="flex flex-col items-end">
+            <p className="text-black text-sm">© 2026</p>
+            <p className="text-black text-sm">
+              Designed and Developed with intention
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+      </Container>
+    </>
   );
 }

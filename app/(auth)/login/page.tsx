@@ -1,12 +1,8 @@
-import { Button } from "@/app/components/button"
 
-export default function Page() {
+import LoginComponent from "@/app/components/LoginComponent"
 
-    return <div className="flex flex-row gap-6 justify-baseline items-center">
-        <Button text="Login" variant="default"/>
-        <Button text="Signup" variant="secondary"/>
+export default function page(){
+    return <div className="w-full h-screen flex items-center justify-center">
+    <LoginComponent/>
     </div>
-   
-    
-
-}
+} 
